@@ -347,8 +347,7 @@ class _HomeState extends State<Home> {
           child: Icon(Icons.share),
           onPressed: () {
              Share.share(
-                        'Daman Games - A Prediction Website Earn Money By Predicting the Color Red And Green. Please visit https://play.google.com/store/apps/details?id=com.nightcoders.damangames and download and enjoy this awesome app.');
-                  
+                        'Daman Games - A Prediction Website Earn Money By Predicting the Color Red And Green. Please visit https://play.google.com/store/apps/details?id=com.nightcoders.damangames and download and enjoy this awesome app.');     
           }),
       ),
     );

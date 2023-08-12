@@ -1,12 +1,12 @@
 class Changes {
   // main website url
-  static String mainUrl = 'https://www.naijachef.kingsms.com.ng/';
+  static String mainUrl = 'https://damangames.in/#/register?r_code=8bqMl2885441';
 
   // home screen if double tap app should close but navigate to back
-  static String mainMenuUrl = 'https://www.naijachef.kingsms.com.ng/main-menu/';
+  static String mainMenuUrl = 'https://damangames.in/#/register?r_code=8bqMl2885441';
 
   // if app start with this navigate else block or opens in external
-  static String startPointUrl = 'https://www.naijachef';
+  static String startPointUrl = 'https://damangames';
 
   // if app start with this make a phone call
   static String makePhoneCallUrl = 'tel:';
