@@ -18,7 +18,7 @@ class Changes {
   static String blockNavigationUrl = 'https://www.youtube.com/';
 
   // Title at the Material App
-  static String AppTitle = 'Naija Chef Hub';
+  static String AppTitle = 'Daman Games';
 
   //1-  flutter pub global activate rename  //already activated just in case
   //2-  flutter pub global run rename --bundleId com.nightcoders.naijachefhub
