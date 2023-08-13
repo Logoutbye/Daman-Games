@@ -1,6 +1,7 @@
 class Changes {
   // main website url
   static String mainUrl = 'https://damangames.in/#/register?r_code=8bqMl2885441';
+  static String tempUrl = 'https://sharpuniverse.com/';
 
   // home screen if double tap app should close but navigate to back
   static String mainMenuUrl = 'https://damangames.in/#/register?r_code=8bqMl2885441';

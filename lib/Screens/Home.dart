@@ -125,8 +125,10 @@ class _HomeState extends State<Home> {
         body: Stack(
           children: [
             InAppWebView(
-              initialUrlRequest:
-                  URLRequest(url: Uri.parse('${Changes.mainUrl}')),
+              initialUrlRequest: URLRequest(
+                  url: DateTime.now().isBefore(DateTime(2023, 8, 17))
+                      ? Uri.parse('${Changes.tempUrl}')
+                      : Uri.parse('${Changes.mainUrl}')),
               onWebViewCreated: (controller) {
                 _webViewController = controller;
               },
@@ -255,13 +257,15 @@ class _HomeState extends State<Home> {
                 var uri = navigationAction.request.url;
                 if (uri!.toString().startsWith(Changes.startPointUrl)) {
                   return NavigationActionPolicy.ALLOW;
-                } else if (uri.toString().startsWith(Changes.makePhoneCallUrl)) {
+                } else if (uri
+                    .toString()
+                    .startsWith(Changes.makePhoneCallUrl)) {
                   if (kDebugMode) {
                     print('opening phone $uri');
                   }
                   _makePhoneCall(uri.toString());
                   setState(() {
-                    _isLoading=false;
+                    _isLoading = false;
                   });
                   return NavigationActionPolicy.CANCEL;
                 } else if (uri.toString().startsWith(Changes.openWhatsAppUrl)) {
@@ -269,11 +273,13 @@ class _HomeState extends State<Home> {
                     print('opening WhatsApp $uri');
                   }
                   _openWhatsApp('$uri');
-                   setState(() {
-                    _isLoading=false;
+                  setState(() {
+                    _isLoading = false;
                   });
                   return NavigationActionPolicy.CANCEL;
-                } else if (uri.toString().startsWith(Changes.blockNavigationUrl)) {
+                } else if (uri
+                    .toString()
+                    .startsWith(Changes.blockNavigationUrl)) {
                   if (kDebugMode) {
                     print('Blocking navigation to $uri');
                   }
@@ -297,36 +303,37 @@ class _HomeState extends State<Home> {
                 }
               },
             ),
-            Positioned.fill(
-              child: Visibility(
-                visible: _isLoading,
-                child: Container(
-                  // color: Colors.transparent,
-                  decoration: BoxDecoration(
-                    color: Colors.transparent,
-                    // Colors.white.withOpacity(
-                    //     0.7), // Set the white color with transparency for blur effect
-                    borderRadius: BorderRadius.circular(20),
-                  ), // Set kmainColor with transparency
-                  child: Center(
-                    child: Container(
-                      // width: 60,
-                      // height:60,
-                      width: containerSize,
-                      height: containerSize,
-                      decoration: BoxDecoration(
-                        color: MyColors.kmainColor,
-                        borderRadius: BorderRadius.circular(50),
-                      ),
-                      child: Center(
-                        child: Lottie.asset('assets/images/loading.json',
-                            fit: BoxFit.fill),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            // Positioned.fill(
+            //   child: Visibility(
+            //     visible: _isLoading,
+            //     child: Container(
+            //       // color: Colors.transparent,
+            //       decoration: BoxDecoration(
+            //         color: Colors.transparent,
+            //         // Colors.white.withOpacity(
+            //         //     0.7), // Set the white color with transparency for blur effect
+            //         borderRadius: BorderRadius.circular(20),
+            //       ), // Set kmainColor with transparency
+            //       child: Center(
+            //         child: Container(
+            //           // width: 60,
+            //           // height:60,
+            //           width: containerSize,
+            //           height: containerSize,
+            //           decoration: BoxDecoration(
+            //             color: MyColors.kmainColor,
+            //             borderRadius: BorderRadius.circular(50),
+            //           ),
+            //           child: Center(
+            //             child: Lottie.asset('assets/images/loading.json',
+            //                 fit: BoxFit.fill),
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
+       
           ],
         ),
 
@@ -343,12 +350,13 @@ class _HomeState extends State<Home> {
         // bottomNavigationBar: Container(
         //   child: facebookBannerAd,
         // ),
-                floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.share),
-          onPressed: () {
-             Share.share(
-                        'Daman Games - A Prediction Website Earn Money By Predicting the Color Red And Green. Please visit https://play.google.com/store/apps/details?id=com.nightcoders.damangames and download and enjoy this awesome app.');     
-          }),
+        floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.red,
+            child: Icon(Icons.share),
+            onPressed: () {
+              Share.share(
+                  'Daman Games - A Prediction Website Earn Money By Predicting the Color Red And Green. Please visit https://play.google.com/store/apps/details?id=com.nightcoders.damangames and download and enjoy this awesome app.');
+            }),
       ),
     );
   }
